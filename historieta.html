@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>La asamblea de la vida — Sístole y Diástole Ed.4</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>:root{--az:#0d1b6e;--na:#e07b00;--am:#f5c842;--verde:#2d7a3a;--ng:#111118;--gr:#6b6b7a;--bl:#fafafa;--li:#d0cfe0;}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Source Serif 4',Georgia,serif;background:var(--bl);color:var(--ng);}header{border-bottom:3px solid var(--az);background:var(--bl);position:sticky;top:0;z-index:100;}.hi{display:flex;align-items:center;justify-content:space-between;padding:10px 48px;}.la{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;}.li{width:46px;height:46px;}.lt h1{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;text-transform:uppercase;color:var(--az);}.lt .tg{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--na);}.vo{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gr);text-decoration:none;}
+.hero-hist{background:linear-gradient(160deg,#1a3a10,#2d5a20,#4a8a30);padding:56px 48px;text-align:center;color:white;}
+.hero-hist .tag{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.hero-hist h2{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;margin-bottom:10px;}
+.hero-hist p{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,.8);}
+.cont{max-width:960px;margin:0 auto;padding:48px 48px;}
+.intro{font-size:1.02rem;color:#2c2c3a;line-height:1.8;margin-bottom:36px;max-width:700px;}
+.personajes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;}
+.pj{border:2px solid var(--li);padding:20px;text-align:center;}
+.pj .pj-nom{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--az);margin-bottom:4px;}
+.pj .pj-rol{font-size:.84rem;color:var(--gr);font-style:italic;}
+.viñetas{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;}
+.vin{border:2px solid var(--li);padding:0;overflow:hidden;}
+.vin-header{background:var(--az);color:white;padding:8px 14px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+.vin-header span{background:var(--am);color:var(--ng);font-weight:700;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.vin-body{padding:16px;}
+.vin-titulo{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--ng);margin-bottom:10px;}
+.dialogo{font-size:.85rem;line-height:1.65;color:#2c2c3a;}
+.dialogo .per{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--az);font-weight:700;}
+.mensaje-final{background:var(--az);color:white;padding:32px 36px;text-align:center;margin-bottom:0;}
+.mensaje-final h3{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px;}
+.mensaje-final p{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;line-height:1.65;color:white;}
+.narrador{background:#f5f0e8;border-left:4px solid var(--am);padding:16px 20px;margin-top:24px;font-size:.9rem;color:#2c2c3a;font-style:italic;}
+.rel{max-width:960px;margin:0 auto;padding:32px 48px 52px;border-top:2px solid var(--az);}
+.rel h3{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--az);margin-bottom:20px;}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.rc{text-decoration:none;color:inherit;display:block;}
+.rc .rl{height:2px;background:var(--li);margin-bottom:10px;position:relative;}
+.rc .rl::before{content:'';position:absolute;left:0;top:0;height:100%;width:28px;background:var(--na);}
+.rc .rs{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--na);margin-bottom:4px;}
+.rc h4{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:700;line-height:1.3;color:var(--ng);transition:color .2s;}
+.rc:hover h4{color:var(--az);}
+.rc .rf{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gr);}
+footer{background:var(--ng);color:white;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.fm{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:900;text-transform:uppercase;}
+.fl{display:flex;gap:16px;}
+.fl a{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;}
+.fl a:hover{color:white;}
+@media(max-width:760px){.hi,.cont,.rel{padding-left:20px;padding-right:20px;}.hero-hist{padding:40px 20px;}.viñetas,.personajes{grid-template-columns:1fr;}.rg{grid-template-columns:1fr 1fr;}}
+</style></head><body>
+<header><div class="hi"><a href="../index.html" class="la"><svg class="li" viewBox="0 0 100 100"><defs><linearGradient id="a1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00b4d8"/><stop offset="100%" stop-color="#0077b6"/></linearGradient><linearGradient id="a2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff9f1c"/><stop offset="100%" stop-color="#e05c3a"/></linearGradient><linearGradient id="a3" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0d1b6e"/><stop offset="100%" stop-color="#1a2f9e"/></linearGradient></defs><path d="M50 15 C30 15,12 30,12 50 C12 65,22 76,35 80 C28 72,24 62,24 50 C24 36,35 24,50 24 C60 24,68 30,72 38 C68 26,60 15,50 15Z" fill="url(#a1)"/><path d="M50 85 C70 85,88 70,88 50 C88 35,78 24,65 20 C72 28,76 38,76 50 C76 64,65 76,50 76 C40 76,32 70,28 62 C32 74,40 85,50 85Z" fill="url(#a2)"/><path d="M50 15 C60 15,68 26,72 38 C76 38,80 43,80 50 C80 58,74 65,65 68 C68 74,60 85,50 85 C40 85,32 74,35 62 C31 59,24 55,24 50 C24 36,35 24,50 24Z" fill="url(#a3)" opacity="0.7"/><circle cx="50" cy="50" r="8" fill="white" opacity="0.9"/><circle cx="50" cy="50" r="4" fill="#0d1b6e"/></svg><div class="lt"><h1>SÍSTOLE &amp; DIÁSTOLE</h1><div class="tg">Latido de economía solidarizante</div></div></a><a href="../index.html" class="vo">← Portada</a></div></header>
+<div class="hero-hist">
+  <div class="tag">Historieta · Edición 4 · Pág. 14</div>
+  <h2>La asamblea de la vida</h2>
+  <p>"Cada uno tiene la verdad… pero juntos mantenemos la vida."</p>
+</div>
+<div class="cont">
+  <p class="intro">En un claro del bosque, bajo una gran flor amarilla, se reúnen Soli, Dari y Santes (las abejas), la hormiga Hori, el grillo Gino y el cucarrón Bruno. Todos saben que hay mucho por hacer, y cada uno tiene una idea de cómo hacerlo.</p>
+  <div class="personajes">
+    <div class="pj"><div class="pj-nom">🐝 Soli, Dari &amp; Santes</div><div class="pj-rol">Las abejas polinizadoras. Llevan vida de flor en flor y producen miel, símbolo de cooperación.</div></div>
+    <div class="pj"><div class="pj-nom">🐜 Hori</div><div class="pj-rol">La hormiga. Cree que sin organización no hay futuro. Trabaja sin descanso.</div></div>
+    <div class="pj"><div class="pj-nom">🦟 Gino &amp; 🪲 Bruno</div><div class="pj-rol">El grillo que da inspiración y el cucarrón que transforma lo que otros desechan.</div></div>
+  </div>
+  <div class="viñetas">
+    <div class="vin"><div class="vin-header"><span>1</span> La convocatoria</div><div class="vin-body"><div class="vin-titulo">¡A decidir cómo mantener viva la red de la vida!</div><div class="dialogo"><p class="per">Todos:</p><p>"Seguramente cada uno tiene una idea de cómo hacerlo."</p></div></div></div>
+    <div class="vin"><div class="vin-header"><span>2</span> La hormiga toma la palabra</div><div class="vin-body"><div class="dialogo"><p class="per">Hori:</p><p>"La vida se mantiene trabajando sin descanso. Hay que organizarse, cargar recursos y construir caminos. Sin organización no hay futuro."</p><p class="per" style="margin-top:8px;">Bruno:</p><p>"¿Y crees que todo se resuelve cargando cosas?"</p></div></div></div>
+    <div class="vin"><div class="vin-header"><span>3</span> El grillo responde</div><div class="vin-body"><div class="dialogo"><p class="per">Gino:</p><p>"Yo no estoy de acuerdo. La vida también necesita inspiración. Mi canto avisa cambios, reúne a otros y llena de alegría las noches."</p><p class="per" style="margin-top:8px;">Hori:</p><p>"¿Cantar mantiene la vida?"</p></div></div></div>
+    <div class="vin"><div class="vin-header"><span>4</span> El cucarrón interviene</div><div class="vin-body"><div class="dialogo"><p class="per">Bruno:</p><p>"Yo transformo lo que otros desechan. Lo que parece inútil vuelve a nutrir la tierra."</p><p class="per" style="margin-top:8px;">Gino:</p><p>"¿Entonces tú tienes la verdad?"</p><p class="per" style="margin-top:8px;">Bruno:</p><p>"No la verdad completa, pero sí una parte."</p></div></div></div>
+    <div class="vin"><div class="vin-header"><span>7</span> El silencio</div><div class="vin-body"><div class="dialogo"><p class="per">Dari:</p><p>"Tal vez estamos mirando solamente nuestra propia tarea."</p><p class="per" style="margin-top:8px;">Santes:</p><p>"¿Y si la vida existe precisamente porque ninguna tarea es suficiente por sí sola?"</p></div></div></div>
+    <div class="vin"><div class="vin-header"><span>8</span> El descubrimiento</div><div class="vin-body"><div class="dialogo"><p class="per">Bruno:</p><p>"La hormiga organiza."</p><p class="per">Gino:</p><p>"Yo comunico y animo."</p><p class="per">Soli:</p><p>"Nosotras polinizamos."</p><p class="per">Santes:</p><p>"Y producimos miel, la dulzura que recuerda que cooperar vale la pena."</p><p class="per">Hori:</p><p>"Entonces ninguno sostiene la red completa."</p></div></div></div>
+  </div>
+  <div class="mensaje-final">
+    <h3>Mensaje final · Todos juntos</h3>
+    <p>"Multiplicar la vida no consiste en imponer una única manera de hacer las cosas. Consiste en unir nuestras diferencias para fecundar, cuidar, transformar, comunicar y sostener la vida con propósito."</p>
+  </div>
+  <div class="narrador">Narrador: Y desde aquel día comprendieron que una red viva no nace de tener la razón, sino de reconocer que cada ser aporta una parte indispensable del gran tejido de la vida. ❤</div>
+</div>
+<div class="rel"><h3>Otros artículos de esta edición</h3><div class="rg">
+<a href="editorial.html" class="rc"><div class="rl"></div><div class="rs">Editorial</div><h4>El cholado de mayo</h4><div class="rf">Josué Rodríguez</div></a>
+<a href="malas-hierbas.html" class="rc"><div class="rl"></div><div class="rs">Narrativa</div><h4>Malas hierbas</h4><div class="rf">Claudia Leal Valencia</div></a>
+<a href="solidario.html" class="rc"><div class="rl"></div><div class="rs">Cooperativismo</div><h4>Buscando significación de lo solidario</h4><div class="rf">Raúl Félix Tovar</div></a>
+</div></div>
+<footer><div class="fm">Sístole y Diástole · Ed. 4</div><div class="fl"><a href="../index.html">Portada</a><a href="#">Ediciones</a><a href="#">Instagram</a></div></footer>
+</body></html>

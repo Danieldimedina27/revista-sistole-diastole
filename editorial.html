@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El cholado de mayo — Sístole y Diástole Ed.4</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#0d1b6e;--azul-medio:#1a2f9e;--naranja:#e07b00;--negro:#111118;--gris-oscuro:#2c2c3a;--gris:#6b6b7a;--gris-claro:#f2f1f6;--blanco:#fafafa;--linea:#d0cfe0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--blanco);color:var(--negro);font-size:18px;line-height:1.75;}
+header{border-bottom:3px solid var(--azul);background:var(--blanco);position:sticky;top:0;z-index:100;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 48px;}
+.logo-area{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;}
+.logo-img{width:46px;height:46px;flex-shrink:0;}
+.logo-texto h1{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;line-height:1.1;letter-spacing:.02em;text-transform:uppercase;}
+.logo-texto h1 .sistole{color:var(--azul);}
+.logo-texto h1 .diastole{color:var(--azul);}
+.logo-texto .tagline{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--naranja);}
+.volver{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);text-decoration:none;transition:color .2s;}
+.volver:hover{color:var(--azul);}
+.cabecera{max-width:900px;margin:0 auto;padding:52px 48px 0;}
+.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--naranja);font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:16px;}
+.sec-label::before{content:'';display:inline-block;width:26px;height:2px;background:var(--naranja);}
+.ed-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-left:10px;padding-left:10px;border-left:1px solid var(--linea);}
+.titulo{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1.08;color:var(--negro);margin-bottom:24px;max-width:820px;}
+.autor-bar{display:flex;align-items:center;gap:16px;padding:18px 0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);}
+.autor-foto{width:50px;height:50px;border-radius:50%;background:var(--gris-claro);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid var(--linea);}
+.autor-info strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;}
+.autor-info span{font-size:.82rem;color:var(--gris);font-style:italic;}
+.autor-fecha{margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);text-align:right;}
+.hero-img{max-width:900px;margin:0 auto;padding:28px 48px;}
+.hero-img .img-wrap{width:100%;height:340px;background:linear-gradient(160deg,#1a2048,#0d1b6e);display:flex;align-items:center;justify-content:center;}
+.hero-img figcaption{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.08em;color:var(--gris);margin-top:7px;}
+.layout{display:grid;grid-template-columns:1fr;gap:56px;max-width:960px;margin:0 auto;padding:0 48px 60px;}
+.cuerpo p{margin-bottom:1.5em;color:var(--gris-oscuro);font-size:1.02rem;line-height:1.82;}
+.cuerpo p:first-child::first-letter{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;float:left;line-height:.82;margin:8px 10px 0 0;color:var(--azul);}
+.cuerpo .destacado{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--azul);line-height:1.55;padding:26px 0 26px 22px;border-left:3px solid var(--azul);margin:30px 0;}
+.cuerpo .sep{text-align:center;color:var(--linea);font-size:1.1rem;letter-spacing:.5em;margin:28px 0;}
+.cuerpo h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--azul);margin:28px 0 10px;}
+footer{background:var(--negro);color:white;padding:24px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.footer-marca{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;text-transform:uppercase;}
+.footer-links{display:flex;gap:18px;}
+.footer-links a{font-family:'Barlow Condensed',sans-serif;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:white;}
+@media(max-width:860px){.titulo{font-size:2rem;}.header-inner{padding:10px 20px;}.cabecera,.hero-img,.layout{padding-left:20px;padding-right:20px;}}
+@media(max-width:560px){.titulo{font-size:1.6rem;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-area">
+      <svg class="logo-img" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="a1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00b4d8"/><stop offset="100%" stop-color="#0077b6"/></linearGradient>
+          <linearGradient id="a2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff9f1c"/><stop offset="100%" stop-color="#e05c3a"/></linearGradient>
+          <linearGradient id="a3" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0d1b6e"/><stop offset="100%" stop-color="#1a2f9e"/></linearGradient>
+        </defs>
+        <path d="M50 15 C30 15,12 30,12 50 C12 65,22 76,35 80 C28 72,24 62,24 50 C24 36,35 24,50 24 C60 24,68 30,72 38 C68 26,60 15,50 15Z" fill="url(#a1)"/>
+        <path d="M50 85 C70 85,88 70,88 50 C88 35,78 24,65 20 C72 28,76 38,76 50 C76 64,65 76,50 76 C40 76,32 70,28 62 C32 74,40 85,50 85Z" fill="url(#a2)"/>
+        <path d="M50 15 C60 15,68 26,72 38 C76 38,80 43,80 50 C80 58,74 65,65 68 C68 74,60 85,50 85 C40 85,32 74,35 62 C31 59,24 55,24 50 C24 36,35 24,50 24Z" fill="url(#a3)" opacity="0.7"/>
+        <circle cx="50" cy="50" r="8" fill="white" opacity="0.9"/>
+        <circle cx="50" cy="50" r="4" fill="#0d1b6e"/>
+      </svg>
+      <div class="logo-texto">
+        <h1><span class="sistole">SÍSTOLE</span> &amp; <span class="diastole">DIÁSTOLE</span></h1>
+        <div class="tagline">Latido de economía solidarizante</div>
+      </div>
+    </a>
+    <a href="index.html" class="volver">← Portada</a>
+  </div>
+</header>
+
+<main>
+  <div class="cabecera">
+    <div class="sec-label">Editorial <span class="ed-label">Edición 4</span></div>
+    <h1 class="titulo">El cholado de mayo</h1>
+    
+    <div class="autor-bar">
+      <div class="autor-info">
+        <strong>Comité Editorial</strong>
+        <span>Sístole & Diástole</span>
+      </div>
+      <div class="autor-fecha">Mayo 2024</div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="cuerpo">
+      <p>A eso de las tres o cinco de la tarde, cuando la brisa de los Farallones acaricia los rostros de turistas y habitantes de Santiago de Cali, las inmediaciones de las Canchas Panamericanas se llenan de colores, aromas y conversaciones. Allí aparece uno de los símbolos más sencillos y entrañables de la ciudad: el cholado. Su preparación parece un pequeño ritual. Mango, piña, lulo, melón, fresa, ciruela y otras frutas son cortadas cuidadosamente y depositadas en un vaso. Luego llega el hielo raspado, las esencias dulces, la leche condensada, una cuchara y un pitillo. El resultado es una mezcla diversa que cada persona disfruta a su manera durante el tránsito de la tarde hacia la noche.</p>
+      
+      <p>La cocina, como la vida, está llena de combinaciones. Algunas agradan más que otras. Algunas son fáciles de digerir; otras requieren tiempo.</p>
+
+      <p>Algo parecido ocurre con los acontecimientos que se mezclan simultáneamente en nuestro planeta. Mayo ha sido un mes particular. Mientras continúan las dosis de soberbia, mentira y desinformación que alimentan la destrucción en el Medio Oriente, también observamos cómo algunos de los empresarios más poderosos del planeta viajan a China para buscar acuerdos y redefinir posiciones dentro del tablero global. Son movimientos que hablan de mercados, recursos naturales, tecnología, influencia política e incluso de la creciente disputa por el espacio exterior como nuevo escenario estratégico.</p>
+
+      <p>Al mismo tiempo, en Colombia, desde La Guajira hasta Leticia y desde el Pacífico hasta las fronteras orientales, millones de personas viven entre la esperanza, la incertidumbre, la tensión y el deseo de transformación. El sistema nervioso colectivo parece oscilar entre el cansancio, la expectativa y la necesidad de encontrar caminos distintos.</p>
+
+      <div class="destacado">
+        "Lo global, lo nacional y lo local terminan mezclándose en un mismo recipiente. Como un gran cholado, encontramos sabores dulces, ácidos, amargos y salados coexistiendo en una misma realidad."
+      </div>
+
+      <p>Todo sucede a la vez. La pregunta es qué estamos dispuestos a consumir, digerir y reproducir. Porque, así como elegimos qué comer, también elegimos qué discursos escuchar, qué ideas alimentar y qué prácticas fortalecer.</p>
+
+      <p>Desde la perspectiva de las economías solidarizantes, hay al menos tres ingredientes que no deberían faltar en esta preparación colectiva. El primero consiste en mantener la vida como propósito fundamental. Toda acción, proyecto, política o emprendimiento debería preguntarse si contribuye o no al cuidado de la vida en sus múltiples expresiones.</p>
+
+      <p>El segundo ingrediente es la capacidad de escucharnos. El diálogo no elimina las diferencias, pero permite que las diferencias no se conviertan en destrucción. Las tensiones, contradicciones y desacuerdos forman parte de la convivencia humana; sin embargo, ninguna diferencia justifica la aniquilación del otro. Las economías solidarizantes encuentran precisamente allí uno de sus mayores desafíos: reconocer a la otra persona como parte de la solución y no como un enemigo que debe ser eliminado.</p>
+
+      <p>El tercer ingrediente es la creatividad transformadora. Personas, familias, organizaciones y territorios conservan siempre la capacidad de proponer acciones sencillas para responder a situaciones complejas. Las grandes transformaciones suelen comenzar con decisiones pequeñas, persistentes y coherentes.</p>
+
+      <p>Durante décadas, ciertos sectores de poder promovieron discursos que convertían a determinados actores sociales o económicos en amenazas absolutas. Hoy, muchos de quienes impulsaron esas narrativas hablan abiertamente de acuerdos, negocios y cooperación cuando sus intereses así lo requieren. Esa contradicción debería invitarnos a pensar con mayor autonomía y menos prejuicios.</p>
+
+      <p>Tal vez uno de los desafíos más importantes para Colombia consiste en liberarse de los lenguajes de satanización y reemplazarlos por lenguajes de encuentro, creación y corresponsabilidad. Porque, al final, la vida colectiva se parece mucho a un cholado caleño: una mezcla diversa de ingredientes, sabores y experiencias que solo tiene sentido cuando aprendemos a compartirla sin destruir aquello que la hace posible.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-marca">Sístole & Diástole</div>
+  <div class="footer-links">
+    <a href="index.html">Volver a la portada</a>
+  </div>
+</footer>
+
+</body>
+</html>

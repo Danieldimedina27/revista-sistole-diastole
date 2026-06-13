@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sístole y Diástole — Edición 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --azul: #0d1b6e;
+  --azul-medio: #1a2f9e;
+  --naranja: #e07b00;
+  --negro: #111118;
+  --gris-oscuro: #2c2c3a;
+  --gris: #6b6b7a;
+  --gris-claro: #f2f1f6;
+  --blanco: #fafafa;
+  --linea: #d0cfe0;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Source Serif 4',Georgia,serif; background:var(--blanco); color:var(--negro); }
+
+/* HEADER */
+header {
+  border-bottom: 3px solid var(--azul);
+  background: var(--blanco);
+  position: sticky; top:0; z-index:100;
+}
+.header-inner {
+  display: flex; align-items:center; justify-content:space-between;
+  padding: 10px 48px;
+}
+.logo-area { display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit; }
+
+/* Logo real SVG - espiral doble azul/naranja */
+.logo-img {
+  width: 56px; height: 56px; flex-shrink:0;
+}
+
+.logo-texto h1 {
+  font-family:'Playfair Display',serif;
+  font-size: 1.5rem; font-weight:900;
+  line-height:1.1; letter-spacing:0.02em;
+  text-transform:uppercase;
+}
+.logo-texto h1 .sistole { color: var(--azul); }
+.logo-texto h1 .y { color: var(--gris); font-weight:700; }
+.logo-texto h1 .diastole { color: var(--azul); }
+.logo-texto .tagline {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.68rem; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--naranja);
+  margin-top:2px;
+}
+nav { display:flex; gap:24px; align-items:center; }
+nav a {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.8rem; letter-spacing:0.1em;
+  text-transform:uppercase; font-weight:600;
+  color:var(--gris-oscuro); text-decoration:none;
+  transition:color .2s;
+}
+nav a:hover { color:var(--azul); }
+.btn-redes {
+  background:var(--azul); color:var(--blanco) !important;
+  padding:6px 14px; border-radius:2px;
+}
+
+.secciones-bar {
+  border-top:1px solid var(--linea);
+  padding: 7px 48px;
+  display:flex; gap:0; overflow-x:auto;
+}
+.secciones-bar a {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.72rem; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--gris);
+  text-decoration:none; padding:2px 0;
+  margin-right:20px; white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.secciones-bar a:hover { color:var(--azul); border-bottom-color:var(--azul); }
+
+/* FRANJA */
+.franja {
+  background:var(--azul); color:white;
+  text-align:center; padding:7px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.75rem; letter-spacing:0.16em;
+  text-transform:uppercase;
+}
+.franja strong { color: #f5c842; }
+
+/* HERO */
+.hero {
+  display:grid; grid-template-columns:1fr 360px;
+  border-bottom:2px solid var(--azul);
+  min-height:480px;
+}
+.hero-texto {
+  padding:48px 48px 48px 48px;
+  display:flex; flex-direction:column; justify-content:center;
+  border-right:1px solid var(--linea);
+}
+.hero-label {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.7rem; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--azul);
+  font-weight:700; margin-bottom:14px;
+  display:flex; align-items:center; gap:8px;
+}
+.hero-label::before {
+  content:''; display:inline-block;
+  width:26px; height:2px; background:var(--azul);
+}
+.hero h2 {
+  font-family:'Playfair Display',serif;
+  font-size:3rem; font-weight:900; line-height:1.08;
+  color:var(--negro); margin-bottom:20px;
+}
+.hero-extracto {
+  font-size:1rem; color:var(--gris-oscuro);
+  line-height:1.75; font-style:italic;
+  margin-bottom:22px; max-width:500px;
+}
+.hero-firma {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.76rem; letter-spacing:0.06em;
+  text-transform:uppercase; color:var(--gris);
+}
+.hero-firma strong { color:var(--negro); }
+.hero-leer {
+  display:inline-block; margin-top:18px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.76rem; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--azul);
+  text-decoration:none;
+  border-bottom:1px solid var(--azul);
+  padding-bottom:2px; transition:opacity .2s;
+}
+.hero-leer:hover { opacity:.6; }
+
+.hero-visual {
+  background:linear-gradient(160deg,#1a2048,#0d1b6e 70%,#162080);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.hero-visual .deco {
+  opacity:.08; font-family:'Playfair Display',serif;
+  font-size:14rem; font-weight:900; color:white;
+  position:absolute; right:-20px; bottom:-30px;
+  line-height:1; user-select:none;
+}
+.hero-visual .cita {
+  position:relative; z-index:2;
+  color:white; text-align:center; padding:36px;
+}
+.hero-visual .cita p {
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem; font-style:italic;
+  line-height:1.6; opacity:.9; margin-bottom:16px;
+}
+.hero-visual .cita span {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.7rem; letter-spacing:0.16em;
+  text-transform:uppercase; opacity:.5;
+}
+
+/* CONTENEDOR */
+.contenedor { max-width:1200px; margin:0 auto; padding:0 48px; }
+
+.sec-titulo {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.7rem; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--azul);
+  font-weight:700; padding:28px 0 14px;
+  border-bottom:2px solid var(--azul);
+  margin-bottom:28px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+
+/* GRILLA 3 */
+.grilla3 {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:32px 36px; margin-bottom:40px;
+  padding-bottom:36px; border-bottom:1px solid var(--linea);
+}
+.tarjeta { text-decoration:none; color:inherit; cursor:pointer; display:block; }
+.tarjeta-img {
+  width:100%; height:180px;
+  background:var(--gris-claro);
+  overflow:hidden; margin-bottom:12px;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.tarjeta-img .num {
+  font-family:'Playfair Display',serif;
+  font-size:5rem; font-weight:900;
+  color:var(--azul); opacity:.07;
+  position:absolute;
+}
+.tarjeta-seccion {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.67rem; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--naranja);
+  font-weight:700; margin-bottom:5px;
+}
+.tarjeta h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.12rem; font-weight:700;
+  line-height:1.26; margin-bottom:7px;
+  transition:color .2s;
+}
+.tarjeta:hover h3 { color:var(--azul); }
+.tarjeta-extracto {
+  font-size:0.86rem; color:var(--gris);
+  line-height:1.6; margin-bottom:8px;
+  display:-webkit-box; -webkit-line-clamp:3;
+  -webkit-box-orient:vertical; overflow:hidden;
+}
+.tarjeta-firma {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.7rem; letter-spacing:0.06em;
+  text-transform:uppercase; color:var(--gris);
+}
+
+/* FILA 2 */
+.fila2 {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:0; border-bottom:1px solid var(--linea);
+  margin-bottom:36px;
+}
+.th {
+  display:grid; grid-template-columns:120px 1fr;
+  gap:14px; padding:20px 0;
+  border-bottom:1px solid var(--linea);
+  text-decoration:none; color:inherit;
+  align-items:start;
+}
+.th:nth-child(odd) { padding-right:28px; border-right:1px solid var(--linea); }
+.th:nth-child(even) { padding-left:28px; }
+.th:nth-last-child(1), .th:nth-last-child(2) { border-bottom:none; }
+.th-img {
+  width:120px; height:88px;
+  background:var(--gris-claro);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; overflow:hidden;
+}
+.th h4 {
+  font-family:'Playfair Display',serif;
+  font-size:0.98rem; font-weight:700;
+  line-height:1.3; margin-bottom:5px;
+  transition:color .2s;
+}
+.th:hover h4 { color:var(--azul); }
+.th-extracto {
+  font-size:0.82rem; color:var(--gris); line-height:1.55;
+  margin-bottom:5px;
+}
+.th-firma {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.68rem; letter-spacing:0.06em;
+  text-transform:uppercase; color:var(--gris);
+}
+
+/* ESPECIALES */
+.especiales {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:24px; margin-bottom:48px;
+}
+.esp-card {
+  text-decoration:none; color:inherit;
+  background:var(--azul); padding:28px 24px;
+  display:flex; flex-direction:column; gap:10px;
+  transition:transform .2s, background .2s;
+}
+.esp-card:hover { background:var(--azul-medio); transform:translateY(-3px); }
+.esp-num {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.65rem; letter-spacing:0.2em;
+  text-transform:uppercase; color:rgba(255,255,255,.5);
+}
+.esp-card h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem; font-weight:700; color:white;
+  line-height:1.3;
+}
+.esp-card p {
+  font-size:0.84rem; color:rgba(255,255,255,.75); line-height:1.6;
+}
+.esp-card .esp-ver {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.7rem; letter-spacing:0.12em;
+  text-transform:uppercase; color:rgba(255,255,255,.5);
+  margin-top:auto; border-top:1px solid rgba(255,255,255,.15);
+  padding-top:10px;
+}
+
+/* LA RED */
+.la-red {
+  display:grid; grid-template-columns:1fr 300px;
+  gap:48px; padding:36px 0 48px;
+  border-top:1px solid var(--linea);
+}
+.red-org h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem; font-weight:900; margin-bottom:16px; color:var(--azul);
+}
+.red-org p { font-size:0.9rem; color:var(--gris-oscuro); line-height:1.7; margin-bottom:12px; }
+.red-logos {
+  display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;
+}
+.red-logos span {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.72rem; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--azul);
+  border:1px solid var(--azul); padding:5px 10px;
+  border-radius:1px;
+}
+.sobre-rev {
+  border-left:2px solid var(--linea); padding-left:36px;
+}
+.sobre-rev h4 {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.7rem; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--azul);
+  margin-bottom:12px; border-bottom:2px solid var(--azul); padding-bottom:8px;
+}
+.sobre-rev p { font-size:0.84rem; color:var(--gris-oscuro); line-height:1.75; margin-bottom:6px; }
+.sobre-rev a {
+  display:block; margin-top:14px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.72rem; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--azul);
+  text-decoration:none; border-bottom:1px solid var(--azul);
+  padding-bottom:2px; display:inline-block;
+}
+
+/* FOOTER */
+footer {
+  background:var(--negro); color:white;
+  padding:36px 48px;
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:28px;
+}
+.footer-marca {
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem; font-weight:900;
+  text-transform:uppercase; color:white; margin-bottom:6px;
+}
+.footer-tagline { color:var(--naranja); font-size:0.78rem; font-style:italic; margin-bottom:10px; }
+footer p, footer a {
+  font-size:0.82rem; color:rgba(255,255,255,.65);
+  text-decoration:none; line-height:1.9; display:block;
+}
+footer a:hover { color:white; }
+footer h4 {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.68rem; letter-spacing:0.16em;
+  text-transform:uppercase; color:rgba(255,255,255,.4);
+  margin-bottom:10px;
+}
+.footer-copy {
+  grid-column:1/-1;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:16px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.7rem; letter-spacing:0.08em;
+  color:rgba(255,255,255,.3); text-align:center;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero { grid-template-columns:1fr; }
+  .hero-visual { height:200px; }
+  .grilla3 { grid-template-columns:1fr 1fr; }
+  .fila2 { grid-template-columns:1fr; }
+  .th:nth-child(odd) { border-right:none; padding-right:0; }
+  .th:nth-child(even) { padding-left:0; }
+  .especiales { grid-template-columns:1fr 1fr; }
+  .la-red { grid-template-columns:1fr; }
+  .sobre-rev { border-left:none; padding-left:0; border-top:2px solid var(--linea); padding-top:28px; }
+  footer { grid-template-columns:1fr 1fr; }
+  .contenedor { padding:0 20px; }
+  .header-inner, .secciones-bar { padding-left:20px; padding-right:20px; }
+}
+@media(max-width:600px){
+  .grilla3 { grid-template-columns:1fr; }
+  .especiales { grid-template-columns:1fr; }
+  footer { grid-template-columns:1fr; }
+  .hero h2 { font-size:2rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-area">
+      <!-- Logo SVG fiel al original: espiral doble azul/naranja/rojo con gradiente -->
+      <svg class="logo-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#e8e6ff"/>
+            <stop offset="100%" stop-color="#c8d0ff"/>
+          </radialGradient>
+          <linearGradient id="azul1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00b4d8"/>
+            <stop offset="100%" stop-color="#0077b6"/>
+          </linearGradient>
+          <linearGradient id="naranja1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff9f1c"/>
+            <stop offset="100%" stop-color="#e05c3a"/>
+          </linearGradient>
+          <linearGradient id="azul2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0d1b6e"/>
+            <stop offset="100%" stop-color="#1a2f9e"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="49" fill="url(#bg)" opacity="0.3"/>
+        <!-- Forma izquierda azul -->
+        <path d="M50 15 C30 15,12 30,12 50 C12 65,22 76,35 80 C28 72,24 62,24 50 C24 36,35 24,50 24 C60 24,68 30,72 38 C68 26,60 15,50 15Z" fill="url(#azul1)"/>
+        <!-- Forma derecha naranja/roja -->
+        <path d="M50 85 C70 85,88 70,88 50 C88 35,78 24,65 20 C72 28,76 38,76 50 C76 64,65 76,50 76 C40 76,32 70,28 62 C32 74,40 85,50 85Z" fill="url(#naranja1)"/>
+        <!-- Centro oscuro -->
+        <path d="M50 15 C60 15,68 26,72 38 C76 38,80 43,80 50 C80 58,74 65,65 68 C68 74,60 85,50 85 C40 85,32 74,35 62 C31 59,24 55,24 50 C24 36,35 24,50 24 C50 15,50 15,50 15Z" fill="url(#azul2)" opacity="0.7"/>
+        <circle cx="50" cy="50" r="8" fill="white" opacity="0.9"/>
+        <circle cx="50" cy="50" r="4" fill="#0d1b6e"/>
+      </svg>
+      <div class="logo-texto">
+        <h1><span class="sistole">SÍSTOLE</span> <span class="y">&</span> <span class="diastole">DIÁSTOLE</span></h1>
+        <div class="tagline">Latido de economía solidarizante</div>
+      </div>
+    </a>
+    <nav>
+      <a href="#">Ediciones</a>
+      <a href="#">Quiénes somos</a>
+      <a href="#" class="btn-redes">Redes</a>
+    </nav>
+  </div>
+ <div class="secciones-bar">
+    <a href="editorial.html">Editorial</a>
+    <a href="solidario.html">Economía solidaria</a>
+    <a href="esteticas.html">Cultura</a>
+    <a href="meritocracia.html">Género</a>
+    <a href="curso.html">Cooperativismo</a>
+    <a href="malas-hierbas.html">Narrativa</a>
+    <a href="historieta.html">Historieta</a>
+    <a href="podcast.html">Emprendimiento</a>
+  </div>
+</header>
+
+<div class="franja">Edición 4 · 31 de mayo de 2026 · <strong>Descarga el PDF →</strong></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-texto">
+    <div class="hero-label">Editorial · Edición 4</div>
+    <h2>El cholado de mayo</h2>
+    <p class="hero-extracto">A eso de las tres de la tarde, cuando la brisa de los Farallones acaricia los rostros de turistas y habitantes de Cali, aparece uno de los símbolos más sencillos y entrañables de la ciudad. Como un gran cholado, la vida colectiva es una mezcla de sabores que solo tiene sentido cuando aprendemos a compartirla.</p>
+    <div class="hero-firma">Por <strong>Josué Ismael Rodríguez Mahecha</strong> · Provocador de procesos de vida</div>
+<a href="editorial.html" class="hero-leer">Leer artículo completo</a>  </div>
+  <div class="hero-visual">
+    <div class="deco">4</div>
+    <div class="cita">
+      <p>"La vida colectiva se parece mucho a un cholado caleño: una mezcla diversa que solo tiene sentido cuando aprendemos a compartirla."</p>
+      <span>Josué Rodríguez · Editorial Ed. 4</span>
+    </div>
+  </div>
+</div>
+
+<!-- GRILLA PRINCIPAL -->
+<div class="contenedor">
+
+  <div class="sec-titulo">Artículos de esta edición</div>
+
+  <div class="grilla3">
+
+    <a href="/meritocracia.html" class="tarjeta">
+      <div class="tarjeta-img">
+  <img src="imagen-merito.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Artículo Meritocracia">
+</div>
+      <div class="tarjeta-seccion">Economía solidaria</div>
+      <h3>La gran estafa de la meritocracia y el club de las 4 a.m.</h3>
+      <p class="tarjeta-extracto">El capitalismo creció sobre una promesa poderosa: esfuérzate y conseguirás algo. Hoy, la precarización laboral hace que el esfuerzo se sienta como el de un hámster en una rueda infinita.</p>
+      <div class="tarjeta-firma">Daniel Enrique Medina · Sociólogo</div>
+    </a>
+
+    <a href="/esteticas.html" class="tarjeta">
+      <div class="tarjeta-img" style="background:linear-gradient(135deg,#fff8e8,#fdecc0);">
+        <div class="num">03</div>
+      </div>
+      <div class="tarjeta-seccion">Cultura · Música</div>
+      <h3>Los que son las estéticas de los oprimidos</h3>
+      <p class="tarjeta-extracto">El Son engloba la música afrocubana y la cultura popular. Con su nacimiento inicia la construcción de un conjunto de bailes de la gente pobre y humilde, un vocablo que se extendió al mundo entero.</p>
+      <div class="tarjeta-firma">Francy Elena Molina Arboleda · U. Pedagógica Nacional</div>
+    </a>
+
+    <a href="/cocina.html" class="tarjeta">
+      <div class="tarjeta-img" style="background:linear-gradient(135deg,#f6f0f0,#ede0e0);">
+        <div class="num">04</div>
+      </div>
+      <div class="tarjeta-seccion">Género · Derechos</div>
+      <h3>De la cocina y otras esclavitudes</h3>
+      <p class="tarjeta-extracto">Levantarse antes del amanecer, pelar, picar, hervir, servir, recoger, lavar y volver a empezar. Esta rutina tiene una alta incidencia en las relaciones de género: una carga destinada a las mujeres.</p>
+      <div class="tarjeta-firma">Alberto Gomez · Defensor de DDHH y Escritor</div>
+    </a>
+
+  </div>
+
+  <!-- FILA HORIZONTAL -->
+  <div class="fila2">
+
+    <a href="/malas-hierbas.html" class="th">
+      <div class="th-img" style="background:#e8eaf6;">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 4 Q24 10,24 18 Q24 26,18 32 Q12 26,12 18 Q12 10,18 4Z" stroke="#0d1b6e" stroke-width="1.5" fill="none" opacity="0.3"/><line x1="18" y1="18" x2="18" y2="32" stroke="#0d1b6e" stroke-width="1.5" opacity="0.3"/></svg>
+      </div>
+      <div>
+        <div class="tarjeta-seccion" style="margin-bottom:4px;">Narrativa · Territorio</div>
+        <h4>Malas hierbas</h4>
+        <p class="th-extracto">De las tareas de jardinería que más disfruto es quitar las malas hierbas. Las despido recordándoles que un día fueron semilla. Nací, crecí y viví muchos años en lugares indeseados.</p>
+        <div class="th-firma">Claudia Leal Valencia · U. del Valle</div>
+      </div>
+    </a>
+
+    <a href="/solidario.html" class="th">
+      <div class="th-img" style="background:#e8f5e9;">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="12" cy="12" r="5" stroke="#0d1b6e" stroke-width="1.5" fill="none" opacity="0.3"/><circle cx="24" cy="12" r="5" stroke="#0d1b6e" stroke-width="1.5" fill="none" opacity="0.3"/><circle cx="18" cy="24" r="5" stroke="#0d1b6e" stroke-width="1.5" fill="none" opacity="0.3"/><line x1="17" y1="12" x2="19" y2="12" stroke="#0d1b6e" stroke-width="1" opacity="0.2"/><line x1="14" y1="17" x2="16" y2="21" stroke="#0d1b6e" stroke-width="1" opacity="0.2"/><line x1="22" y1="17" x2="20" y2="21" stroke="#0d1b6e" stroke-width="1" opacity="0.2"/></svg>
+      </div>
+      <div>
+        <div class="tarjeta-seccion" style="margin-bottom:4px;">Cooperativismo</div>
+        <h4>Buscando significación de lo solidario</h4>
+        <p class="th-extracto">Los seres humanos atravesamos ciclos vitales. Creo en lo solidario como principio constructor de tejido social; veo con preocupación cuando la palabra solidaridad se usa como sinónimo de ahorro individual.</p>
+        <div class="th-firma">Raúl Félix Tovar Beltrán · Psicólogo</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ESPECIALES -->
+  <div class="sec-titulo" style="margin-top:36px;">Contenido especial</div>
+
+  <div class="especiales">
+    <a href="/curso.html" class="esp-card">
+      <div class="esp-num">05 · Formación</div>
+      <h3>Curso básico de formación en Economía Solidarizante</h3>
+      <p>10 horas de formación virtual. Becas otorgadas por Sístole y Diástole, Laédu y Fundación Proyectamos.</p>
+      <div class="esp-ver">Ver convocatoria →</div>
+    </a>
+    <a href="/historieta.html" class="esp-card">
+      <div class="esp-num">08 · Historieta</div>
+      <h3>La asamblea de la vida</h3>
+      <p>Cada uno tiene la verdad… pero juntos mantenemos la vida. Una historia ilustrada con Soli, Dari, Santes, Hori, Gino y Bruno.</p>
+      <div class="esp-ver">Ver historieta →</div>
+    </a>
+    <a href="//podcast.html" class="esp-card">
+      <div class="esp-num">09 · Podcast</div>
+      <h3>Pulsos Territoriales — Próximamente</h3>
+      <p>Territorios que laten, voces que conectan, economías solidarias. Conducido por Josué Rodríguez. Próximo lanzamiento.</p>
+      <div class="esp-ver">Conoce más →</div>
+    </a>
+  </div>
+
+  <!-- LA RED + SOBRE -->
+  <div class="la-red">
+    <div class="red-org">
+      <h3>La Red</h3>
+      <p>Sístole y Diástole forma parte de una red de organizaciones comprometidas con la economía solidaria y la inclusión social en Colombia. Juntas construyen territorios con vida, cooperación y dignidad.</p>
+      <div class="red-logos">
+        <span>Coopserviandina</span>
+        <span>Sermutual</span>
+        <span>Corp. Viviendo</span>
+        <span>Laédu</span>
+        <span>Fund. Proyectamos</span>
+      </div>
+    </div>
+    <div class="sobre-rev">
+      <h4>Sobre la revista</h4>
+      <p><strong>Director:</strong> Josué Ismael Rodríguez Mahecha</p>
+      <p><strong>Diseño:</strong> Mayele Rodríguez Valencia</p>
+      <p><strong>Comité editorial:</strong> Josué Rodríguez, Daniel E. Medina, Abimael Medina, Alberto Gomez, Raúl Tovar</p>
+      <p><strong>Contacto:</strong> sistolesydiastolerevista@gmail.com</p>
+      <p><strong>Cali</strong> · Calle 55 #12e-24</p>
+      <a href="#">@sistoleydiastole_ en Instagram →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-marca">Sístole y Diástole</div>
+    <div class="footer-tagline">Latido de economía solidarizante</div>
+    <p>Cali — Santiago de Cali</p>
+    <p>sistolesydiastolerevista@gmail.com</p>
+  </div>
+  <div>
+    <h4>Ediciones</h4>
+    <a href="#">Edición 4 · Mayo 2026</a>
+    <a href="#">Edición 3 · 2026</a>
+    <a href="#">Edición 2 · 2026</a>
+    <a href="#">Edición 1 · Fundacional</a>
+  </div>
+  <div>
+    <h4>Redes</h4>
+    <a href="https://www.instagram.com/sistoleydiastole_">Instagram @sistoleydiastole_</a>
+    <a href="https://web.facebook.com/profile.php?id=61589396819371">Facebook Sistole Diastole</a>
+  </div>
+  <div class="footer-copy">© 2026 Sístole y Diástole · Publicación cooperativa · Cali, Colombia · Edición 4</div>
+</footer>
+
+</body>
+</html>
